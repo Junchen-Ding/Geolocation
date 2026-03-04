@@ -1,0 +1,14 @@
+name: script-app
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.8
+  - requests=2.25.1
+  - beautifulsoup4=4.9.3
+  - pytorch=1.9.0
+  - torchvision=0.10.0
+  - pytorch-lightning=1.4.0
+  - dataloader=2.0
+  - dataset=1.6.2
+  - datasets=2.19.1
