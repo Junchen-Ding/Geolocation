@@ -2,7 +2,7 @@
 
 Image dataset for training and evaluation in the paper:
 
-> **Mission: Impossible–Image-Based Geolocation with Large Vision Language Models**
+  **Mission: Impossible–Image-Based Geolocation with Large Vision Language Models**
 
 ### 📚 Publication
 | | |
@@ -22,7 +22,7 @@ You are free to share and adapt the material, provided appropriate credit is giv
 ```bibtex
 @article{ding2025mission,
   title = {Mission: Impossible--Image-Based Geolocation with Large Vision Language Models},
-  author = {Ding, Junchen and others},
+  author = {Yi Liu, Gelei Deng, Junchen Ding, Yuekang Li, Tianwei Zhang, Weisong Sun, Yaowen Zheng, Jingquan Ge},
   journal = {Proceedings on Privacy Enhancing Technologies},
   volume = {2025},
   number = {4},
