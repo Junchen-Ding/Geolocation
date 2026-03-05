@@ -11,7 +11,6 @@ from PIL import Image
 import io
 import re
 
-# 考虑视频及图像的可能形式
 class CustomDataset(Dataset) :
     def __init__(self, file_paths, transform=None) :
         self.file_paths = file_paths
@@ -29,7 +28,7 @@ class CustomDataset(Dataset) :
                 image = self.transform(image)
             return image
         elif file_path.lower().endswith(('mp4', 'avi', 'mov', 'mkv', 'flv')) :
-            # 读取视频帧，读取视频的第一帧
+
             import cv2
             cap = cv2.VideoCapture(file_path)
             ret, frame = cap.read()
@@ -43,7 +42,6 @@ class CustomDataset(Dataset) :
             raise ValueError(f"Unsupported file format: {file_path}")
 
 
-# 用于处理数据ImageDataModule
 class ImageDataModule(pl.LightningDataModule) :
     def __init__(self, data_dir, batch_size=32, num_workers=4) :
         super().__init__()
@@ -83,7 +81,6 @@ def parse_markdown(file_path) :
 
 
 def extract_dataset_links(markdown_content) :
-    # 使用正则表达式提取所有的链接和名称
     links_with_names = re.findall(r'\[(.*?)\]\((https?://.*?)\)', markdown_content)
     return links_with_names
 
@@ -96,7 +93,6 @@ def download_and_extract(url, download_path) :
             if chunk :
                 file.write(chunk)
 
-    # 判断文件类型并解压
     if file_name.endswith(('tar.gz', 'tgz')) :
         with tarfile.open(file_name, 'r:gz') as tar :
             tar.extractall(path=download_path)
@@ -167,11 +163,9 @@ def main() :
             if continue_download == 'N' :
                 break
 
-    # 设置并使用 ImageDataModule
     data_module = ImageDataModule(data_dir=resource_dir)
     data_module.setup('fit')
 
-    # 打印训练数据集的样本数
     if data_module.train_dataset :
         print(f"Number of samples in the training dataset: {len(data_module.train_dataset)}")
     else :
@@ -179,3 +173,4 @@ def main() :
 
 if __name__ == "__main__" :
     main()
+
