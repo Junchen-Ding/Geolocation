@@ -20,7 +20,7 @@ You are free to share and adapt the material, provided appropriate credit is giv
 
 ### 📖 Citation
 ```bibtex
-@article{ding2025mission,
+@article{liu2025mission,
   title = {Mission: Impossible--Image-Based Geolocation with Large Vision Language Models},
   author = {Yi Liu, Gelei Deng, Junchen Ding, Yuekang Li, Tianwei Zhang, Weisong Sun, Yaowen Zheng, Jingquan Ge},
   journal = {Proceedings on Privacy Enhancing Technologies},
