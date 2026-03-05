@@ -4,6 +4,10 @@ Image dataset for training and evaluation in the paper:
 
   **Mission: Impossible–Image-Based Geolocation with Large Vision Language Models**
 
+All image data are compressed files `*.tar.gz`.
+
+The scripts in this repository are for testing purposes only and are not the training and experimental scripts used in this paper. The code related to this paper has not yet been made public.
+
 ### 📚 Publication
 | | |
 |---|---|
