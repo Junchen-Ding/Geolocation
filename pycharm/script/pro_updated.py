@@ -12,7 +12,6 @@ import io
 import re
 
 
-# 考虑视频及图像的可能形式
 class CustomDataset(Dataset):
     def __init__(self, file_paths, transform=None):
         self.file_paths = file_paths
@@ -30,7 +29,6 @@ class CustomDataset(Dataset):
                 image = self.transform(image)
             return image
         elif file_path.lower().endswith(('mp4', 'avi', 'mov', 'mkv', 'flv')):
-            # 读取视频帧，读取视频的第一帧
             import cv2
             cap = cv2.VideoCapture(file_path)
             ret, frame = cap.read()
@@ -44,7 +42,6 @@ class CustomDataset(Dataset):
             raise ValueError(f"Unsupported file format: {file_path}")
 
 
-# 用于处理数据ImageDataModule
 class ImageDataModule(pl.LightningDataModule):
     def __init__(self, data_dir, batch_size=32, num_workers=4):
         super().__init__()
@@ -112,7 +109,6 @@ def main():
             # If the file is not an archive, just download it directly to the folder.
             print(f"{local_filename} is not an archive, saved directly.")
 
-    # main 函数中的主要逻辑，下载并提取数据集
     if not os.path.exists(markdown_file_path):
         print(f"File not found: {markdown_file_path}")
         return
@@ -154,11 +150,9 @@ def main():
         if continue_download == 'N':
             break
 
-    # 设置并使用 ImageDataModule
     data_module = ImageDataModule(data_dir=resource_dir)
     data_module.setup('fit')
 
-    # 打印训练数据集的样本数
     if data_module.train_dataset:
         print(f"Number of samples in the training dataset: {len(data_module.train_dataset)}")
     else:
