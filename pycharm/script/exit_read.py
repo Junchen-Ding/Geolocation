@@ -80,7 +80,7 @@ def process_images_and_save_csv(resource_folder, csv_file):
 
 
 if __name__ == "__main__":
-    resource_folder = 'resource'  # 资源文件夹路径
+    resource_folder = 'resource'
     if not os.path.exists(resource_folder):
         os.makedirs(resource_folder)
 
